@@ -13,6 +13,12 @@ def menu():
     ==> """
     return input(textwrap.dedent(menu))
 
+# =============== functions
+
+
+
+# =============== end functions
+
 def main():
     LIMITE_SAQUES = 3
     AGENCIA = "0001"
@@ -45,5 +51,23 @@ def main():
         elif opcao == "e":
             exibir_extrato(saldo, extrato=extrato)
         
+        elif opcao == "nu":
+            criar_usuario(usuarios)
+        
+        elif opcao == "nc":
+            numero_conta = len(contas) + 1
+            conta = criar_conta(AGENCIA, numero_conta, usuarios)
+            
+            if conta:
+                contas.append(conta)
+        
+        elif opcao == "lc":
+            listar_contas(contas)
+        
+        elif opcao == "q":
+            break
+        
         else:
             print("Opção inválida! Verifique as opções disponíveis!")
+
+main()
